@@ -1,0 +1,104 @@
+/* COLORS */
+:root {
+    --primary-color: #FEEFE5;
+    --secondary-color: #CFC7A2;
+    --tertiary-color: #333d34;
+    --background-color: #f0f0f0;
+    --text-color: #e8f3e4;
+    --link-color: #007bff;
+    --link-hover-color: #0056b3;
+}
+
+/* IMPORTS */
+@font-face {
+    font-family: 'autumn';
+    src: url('assets/fonts/AUTUMN IN NOVEMBER.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+    z-index: -1;
+}
+
+#background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    object-fit: cover;
+    filter: blur(40px) saturate(200%) hue-rotate(45deg) opacity(0.5);
+    z-index: -1;
+}
+
+#profile-picture {
+    border-radius: 50%;
+    border: 5px solid var(--secondary-color);
+    margin: 0 auto;
+}
+
+#contact img{
+    height: 1.1em;
+    position: relative;
+    transform: translateY(30%);
+    margin-right: 20px;
+}
+
+main {
+    width: 80%;
+    background-color: var(--background-color);
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 30px;
+    background: rgba(254, 239, 229, 0.44);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.6px);
+    -webkit-backdrop-filter: blur(4.6px);
+    border: 1px solid rgba(254, 239, 229, 0.78);
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--text-color);
+    font-size: 1.1em;
+}
+
+header {
+    display: grid;
+    position: relative;
+    top: -1px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 0 0 30px 30px;
+    background: rgba(254, 239, 229, 0.44);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.6px);
+    -webkit-backdrop-filter: blur(4.6px);
+    border: 1px solid rgba(254, 239, 229, 0.78);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: var(--secondary-color);
+    text-shadow: 2px 2px 0px var(--tertiary-color);
+    font-family: 'autumn';
+}
+
+body{
+    margin: 0;
+}
