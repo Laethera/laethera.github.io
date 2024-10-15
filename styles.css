@@ -1,5 +1,5 @@
 /* COLORS */
-:root {
+[data-theme="green"]{
     --primary-color: #FEEFE5;
     --secondary-color: #CFC7A2;
     --tertiary-color: #333d34;
@@ -7,6 +7,22 @@
     --text-color: #e8f3e4;
     --link-color: #007bff;
     --link-hover-color: #0056b3;
+    #background-image{
+        filter: blur(40px) saturate(200%) hue-rotate(45deg) opacity(0.5);
+    }
+}
+
+[data-theme="orange"]{
+    --primary-color: #FEEFE5;
+    --secondary-color: #CFC7A2;
+    --tertiary-color: #333d34;
+    --background-color: #f0f0f0;
+    --text-color: #e8f3e4;
+    --link-color: #FFA500;
+    --link-hover-color: #FF8C00;
+    #background-image{
+        filter: blur(40px) saturate(200%) hue-rotate(5deg) opacity(0.5);
+    }
 }
 
 /* IMPORTS */
@@ -38,7 +54,6 @@
     height: auto;
     min-height: 100vh;
     object-fit: cover;
-    filter: blur(40px) saturate(200%) hue-rotate(45deg) opacity(0.5);
     z-index: -1;
 }
 
@@ -55,17 +70,45 @@
     margin-right: 20px;
 }
 
+#theme-switcher {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    z-index: 1;
+}
+
+#theme-button{
+    background-color: #ffffff00;
+    border: none;
+    height: 30px;
+    cursor: pointer;
+}
+
+#theme-button img{
+    height: 100%;
+}
+
+#theme-dropdown {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    display: none;
+    z-index: 1;
+}
+
 main {
     width: 80%;
     background-color: var(--background-color);
     margin: 20px auto;
     padding: 20px;
     border-radius: 30px;
-    background: rgba(254, 239, 229, 0.44);
+    background: rgba(from var(--secondary-color) r g b / 44%);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(4.6px);
     -webkit-backdrop-filter: blur(4.6px);
-    border: 1px solid rgba(254, 239, 229, 0.78);
+    border: 1px solid rgba(from var(--secondary-color) r g b / 60%);
     font-family: 'Courier New', Courier, monospace;
     color: var(--text-color);
     font-size: 1.1em;
@@ -79,16 +122,15 @@ header {
     align-items: center;
     text-align: center;
     color: var(--text-color);
-    background-color: var(--primary-color);
     width: 80%;
     margin: 0 auto;
     padding: 20px;
     border-radius: 0 0 30px 30px;
-    background: rgba(254, 239, 229, 0.44);
+    background: rgba(from var(--secondary-color) r g b / 44%);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(4.6px);
     -webkit-backdrop-filter: blur(4.6px);
-    border: 1px solid rgba(254, 239, 229, 0.78);
+    border: 1px solid rgba(from var(--secondary-color) r g b / 60%);
 }
 
 header h1 {
@@ -101,4 +143,21 @@ header h1 {
 
 body{
     margin: 0;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+a:visited {
+    color: var(--link-color);
+}
+
+a:visited:hover {
+    color: var(--link-hover-color);
 }

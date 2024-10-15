@@ -10,6 +10,26 @@ async function getPfpUrl() {
     return null;
 }
 
+async function toggleThemeSwitcherVisibility() {
+    const themeSwitcher = document.getElementById('theme-dropdown');
+    if (themeSwitcher.style.display === 'none' || themeSwitcher.style.display === '') {
+        themeSwitcher.style.display = 'block';
+    } else {
+        themeSwitcher.style.display = 'none';
+    }
+}
+
+async function applyThemeFromDropdown(){
+    const theme = document.getElementById('theme-dropdown').dataset.theme;
+    setTheme(theme);
+}
+
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    console.log('Theme set to ' + theme);
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM loaded');
     const profilePictureElement = document.getElementById('profile-picture');
@@ -17,4 +37,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (avatarURL) {
         profilePictureElement.src = avatarURL;
     }
+    if(localStorage.getItem('theme')) {
+        setTheme(localStorage.getItem('theme'));
+    } else {
+        setTheme('green');
+    }
+    const themeDropdown = document.getElementById('theme-dropdown');
+    Array.from(themeDropdown.children).forEach(child => {
+        child.addEventListener('click', (event) => {
+            const selectedTheme = event.target.dataset.theme;
+            if (selectedTheme) {
+                setTheme(selectedTheme);
+            }
+        });
+    });
 });
+
+document.getElementById('theme-button').addEventListener('click', toggleThemeSwitcherVisibility);
