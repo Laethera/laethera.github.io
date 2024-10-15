@@ -45,9 +45,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const themeDropdown = document.getElementById('theme-dropdown');
     Array.from(themeDropdown.children).forEach(child => {
         child.addEventListener('click', (event) => {
-            const selectedTheme = event.target.dataset.theme;
+            const selectedTheme = event.currentTarget.dataset.theme;
             if (selectedTheme) {
                 setTheme(selectedTheme);
+                toggleThemeSwitcherVisibility();
             }
         });
     });
