@@ -21,21 +21,16 @@
 		--header-height: 4rem;
 		--font-heading: 'Noticia Text', serif;
 		
-		/* Base glow accent color (RGB triple) - change this to alter all glows */
-		--glow-accent: 214, 144, 159; /* light pink by default */
+		--glow-accent: 214, 144, 159;
 
-		/* Glow colors with different opacities (derived from --glow-accent)
-		   Increased alpha values to make glows more visible */
 		--glow-color: rgba(var(--glow-accent), 1);
 		--glow-light: rgba(var(--glow-accent), 0.45);
 		--glow-soft: rgba(var(--glow-accent), 0.18);
 
-		/* Glow shadows with larger blur/spread for stronger effect */
 		--glow-primary: 0 0 20px var(--glow-color);
 		--glow-secondary: 0 0 36px var(--glow-light);
 		--glow-subtle: 0 0 14px var(--glow-soft);
 
-		/* Button/outline helpers */
 		--button-outline: 1px solid rgba(var(--glow-accent), 0.4);
 		--focus-outline: 2px solid rgba(var(--glow-accent), 0.8);
 
@@ -66,7 +61,6 @@
 		padding: 2rem;
 	}
 
-	/* Remove default margin on certain elements */
 	h1, h2, h3, h4, h5, h6, p {
 		margin: 0;
 	}
