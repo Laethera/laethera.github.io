@@ -40,14 +40,15 @@ import aboutImage from '../assets/portrait.png';
                 <h2 class="intro">
                     Experience & Skills
                 </h2>
-                <p class="details">
+                <!-- Use a div here instead of a p to avoid placing a block <ul> inside a paragraph -->
+                <div class="details">
                     <ul>
                         <li>Abitur in 2021 from Goethe-Schule Bochum, with a focus on Maths and English</li>
                         <li>Currently pursuing a Bachelor's degree in Computer Science with expected graduation in 2027</li>
                         <li>Internships at McCANN Worldgroup in Düsseldorf and at cv cryptovision GmbH in Gelsenkirchen</li>
                         <li>Part-time job experience in customer service, web development, and web design at DWDigi Essen</li>
                     </ul>
-                </p>
+                </div>
             </div>
         </div>
     </div>
@@ -57,11 +58,6 @@ import aboutImage from '../assets/portrait.png';
     .about-section {
         padding: 4rem 2rem;
         margin-top: 2rem;
-    }
-
-    .about-content {
-        max-width: 960px;
-        margin: 0 auto;
     }
 
     .section-title {
