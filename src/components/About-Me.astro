@@ -179,7 +179,8 @@ import aboutImage from '../assets/portrait.png';
         padding: 0;
         margin: 0;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        /* allow up to 2 items per row; items won't get smaller than 200px */
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
         gap: 1.5rem;
     }
 
@@ -224,6 +225,10 @@ import aboutImage from '../assets/portrait.png';
 
         .section-title {
             font-size: 2rem;
+        }
+        /* ensure the experience/skills list becomes a single column on small screens */
+        .full-width-section ul {
+            grid-template-columns: 1fr;
         }
     }
 </style>
