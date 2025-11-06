@@ -1,0 +1,52 @@
+---
+const { class: extra = '' } = Astro.props;
+---
+
+<div class={`text-tile ${extra}`}>
+  <slot />
+</div>
+
+<style>
+  .text-tile {
+    background: rgba(var(--glow-accent), 0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      inset 0 0 0 1px var(--glow-soft);
+  }
+
+  .text-tile .intro {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  .text-tile .details {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .text-tile .focus-areas {
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Style the slotted .skills-list globally so the UL placed inside the slot
+     receives the intended grid layout. Using :global keeps the styles in the
+     component file while allowing them to apply to slotted markup. */
+  :global(.skills-list) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .text-tile { padding: 1.25rem; }
+  }
+</style>

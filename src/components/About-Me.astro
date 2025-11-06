@@ -1,15 +1,17 @@
 ---
 import aboutImage from '../assets/portrait.png';
+import SkillItem from './SkillItem.astro';
+import TextTile from './TextTile.astro';
+import AccentedTile from './AccentedTile.astro';
+import FullWidthSection from './FullWidthSection.astro';
 ---
 
 <section class="about-section">
     <div class="about-content">
         <h2 class="section-title">About Me</h2>
         <div class="bio-container">
-            <div class="bio-text">
-                <h2 class="intro">
-                    Hi, it's great to meet you!
-                </h2>
+            <TextTile>
+                <h2 class="intro">Hi, it's great to meet you!</h2>
                 <p class="details">
                     {(() => {
                         const birth = new Date('2003-04-29');
@@ -23,33 +25,33 @@ import aboutImage from '../assets/portrait.png';
                     skills and interpersonal experience to every project I undertake. 
                     I'm always keen to work on new challenges, both professionally and personally :)
                 </p>
-                <h3 class="focus-areas">
-                    Key information:
-                </h3>
+
+                <h3 class="intro">Key information:</h3>
+
                 <ul class="skills-list">
-                    <li class="skill-item">Prior Experience in Customer Service</li>
-                    <li class="skill-item">Managed Web Development Projects</li>
-                    <li class="skill-item">Professional Insights in Web Design</li>
-                    <li class="skill-item">Years of team-based project experience</li>
+                    <SkillItem>Prior Experience in Customer Service</SkillItem>
+                    <SkillItem>Managed Web Development Projects</SkillItem>
+                    <SkillItem>Professional Insights in Web Design</SkillItem>
+                    <SkillItem>Years of team-based project experience</SkillItem>
                 </ul>
-            </div>
+            </TextTile>
+
             <div class="image-card">
                 <img src={aboutImage.src} alt="About image" class="about-image" />
             </div>
-            <div class="full-width-section">
-                <h2 class="intro">
-                    Experience & Skills
-                </h2>
-                <!-- Use a div here instead of a p to avoid placing a block <ul> inside a paragraph -->
+
+            <FullWidthSection>
+                <h2 class="intro">Experience & Skills</h2>
                 <div class="details">
                     <ul>
-                        <li>Abitur in 2021 from Goethe-Schule Bochum, with a focus on Maths and English</li>
-                        <li>Currently pursuing a Bachelor's degree in Computer Science with expected graduation in 2027</li>
-                        <li>Internships at McCANN Worldgroup in Düsseldorf and at cv cryptovision GmbH in Gelsenkirchen</li>
-                        <li>Part-time job experience in customer service, web development, and web design at DWDigi Essen</li>
+                        <AccentedTile>Abitur in 2021 from Goethe-Schule Bochum, with a focus on Maths and English</AccentedTile>
+                        <AccentedTile>Currently pursuing a Bachelor's degree in Computer Science with expected graduation in 2027</AccentedTile>
+                        <AccentedTile>Internships at McCANN Worldgroup in Düsseldorf and at cv cryptovision GmbH in Gelsenkirchen</AccentedTile>
+                        <AccentedTile>Part-time job experience in customer service, web development, and web design at DWDigi Essen</AccentedTile>
                     </ul>
                 </div>
-            </div>
+            </FullWidthSection>
+        </div>
         </div>
     </div>
 </section>
@@ -87,67 +89,9 @@ import aboutImage from '../assets/portrait.png';
         display: grid;
         grid-template-columns: 1.5fr 1fr;
         gap: 3rem;
-        /* stretch so the image column matches the bio text height */
         align-items: stretch;
     }
 
-    .bio-text {
-        background: rgba(var(--glow-accent), 0.08);
-        backdrop-filter: blur(12px);
-        border-radius: 1.5rem;
-        padding: 2rem;
-        box-shadow:
-            0 8px 32px rgba(0, 0, 0, 0.1),
-            inset 0 0 0 1px var(--glow-soft);
-    }
-
-    .intro {
-        font-size: 1.25rem;
-        margin-bottom: 1.5rem;
-        font-weight: 500;
-    }
-
-    .details {
-        color: var(--text-color);
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-    }
-
-    .focus-areas {
-        font-weight: 500;
-        margin-bottom: 0.75rem;
-    }
-
-    .skills-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 1rem;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .skill-item {
-        color: var(--text-color);
-        background: color-mix(in srgb, var(--secondary-color) 10%, transparent);
-        padding: 0.5rem 1rem;
-        border-radius: 1rem;
-        border: 1px solid color-mix(in srgb, var(--secondary-color) 40%, transparent);
-        text-align: center;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 2.5rem;
-    }
-
-    .skill-item:hover {
-        background: color-mix(in srgb, var(--secondary-color) 15%, transparent);
-        transform: translateY(-2px);
-        box-shadow: var(--glow-subtle);
-    }
-
-    /* image column that fills the remaining space and matches bio height */
     .image-card {
         height: 100%;
         display: block;
@@ -163,54 +107,16 @@ import aboutImage from '../assets/portrait.png';
         object-fit: cover;
     }
 
-    .full-width-section {
-        grid-column: 1 / -1;
-        background: rgba(var(--glow-accent), 0.08);
-        backdrop-filter: blur(12px);
-        border-radius: 1.5rem;
-        padding: 2rem;
-        box-shadow:
-            0 8px 32px rgba(0, 0, 0, 0.1),
-            inset 0 0 0 1px var(--glow-soft);
+    .intro{
+        margin: 1rem 0;
     }
 
-    .full-width-section ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: grid;
-        /* allow up to 2 items per row; items won't get smaller than 200px */
-        grid-template-columns: repeat(2, minmax(200px, 1fr));
-        gap: 1.5rem;
+    .intro:first-child{
+        margin-top: 0;
     }
 
-    .full-width-section li {
-        background: rgba(var(--glow-accent), 0.05);
-        border-radius: 1rem;
-        padding: 1rem 1.5rem;
-        line-height: 1.6;
-        border: 1px solid color-mix(in srgb, var(--primary-color) 20%, transparent);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .full-width-section li::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 8px;
-        height: 100%;
-        background: var(--primary-color);
-        box-shadow: var(--glow-subtle);
-    }
-
-    .full-width-section li:hover {
-        transform: translateY(-2px);
-        background: rgba(var(--glow-accent), 0.08);
-        box-shadow: var(--glow-subtle);
-        border-color: color-mix(in srgb, var(--primary-color) 30%, transparent);
+    .details{
+        line-height: 1.5;
     }
 
     @media (max-width: 768px) {
@@ -225,10 +131,6 @@ import aboutImage from '../assets/portrait.png';
 
         .section-title {
             font-size: 2rem;
-        }
-        /* ensure the experience/skills list becomes a single column on small screens */
-        .full-width-section ul {
-            grid-template-columns: 1fr;
         }
     }
 </style>
